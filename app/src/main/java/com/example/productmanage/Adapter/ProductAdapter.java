@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.productmanage.Database.ProductSQLite;
 import com.example.productmanage.Interface.OnClickInterface;
 import com.example.productmanage.Model.Products;
 import com.example.productmanage.R;
@@ -24,6 +25,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     Context context;
     List<Products> productsList;
     private OnClickInterface onClickInterface;
+    private ProductSQLite productSQLite;
 
     public void setOnClickInterface(OnClickInterface onClickInterface) {
         this.onClickInterface = onClickInterface;
@@ -32,6 +34,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public ProductAdapter(Context context, List<Products> productsList) {
         this.context = context;
         this.productsList = productsList;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -42,6 +45,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        if(position != 0)
         holder.imgProduct.setImageResource(productsList.get(position).getProductImg());
         holder.txtProductName.setText(productsList.get(position).getProductName());
         holder.txtProductDes.setText(productsList.get(position).getProductDes());
@@ -54,7 +58,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        productSQLite = new ProductSQLite(context);
+                        productSQLite.deleteProduct(productsList.get(position).getId());
                         productsList.remove(position);
+
+
                         notifyDataSetChanged();
                     }
                 });

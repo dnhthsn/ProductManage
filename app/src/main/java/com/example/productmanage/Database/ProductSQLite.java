@@ -59,4 +59,11 @@ public class ProductSQLite extends SQLiteOpenHelper {
         db.insert(TABLE_PRODUCT, null, values);
         db.close();
     }
+
+    public int deleteProduct(int i){
+        SQLiteDatabase db = this.getReadableDatabase();
+        int res = db.delete(TABLE_PRODUCT, ID_PRODUCT+" = " + i, null);
+        return res;
+    }
+
 }
