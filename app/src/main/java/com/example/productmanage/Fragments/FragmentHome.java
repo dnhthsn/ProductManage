@@ -73,6 +73,8 @@ public class FragmentHome extends Fragment implements OnClickInterface {
 
         recyclerAllProduct.setLayoutManager(layoutManager);
         recyclerAllProduct.setAdapter(productAdapter);
+        cursor.moveToFirst();
+        cursor.close();
 
         btnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,8 +103,9 @@ public class FragmentHome extends Fragment implements OnClickInterface {
     public void onClick(View view, int position, boolean isLongClick) {
         Intent intent = new Intent(getContext(), UpdateProduct.class);
         pcurr = position;
+
         intent.putExtra("idPro", String.valueOf(productsList.get(position).getId()));
-        intent.putExtra("imgPro", productsList.get(position).getProductImg());
+        intent.putExtra("imgPro", String.valueOf(productsList.get(position).getProductImg()));
         intent.putExtra("namePro", productsList.get(position).getProductName());
         intent.putExtra("desPro", productsList.get(position).getProductDes());
         intent.putExtra("pricePro", String.valueOf(productsList.get(position).getProductPrice()));

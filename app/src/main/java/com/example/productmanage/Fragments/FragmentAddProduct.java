@@ -26,16 +26,11 @@ public class FragmentAddProduct extends Fragment {
     private EditText edtNameProduct, edtDesProduct, edtPriceProduct;
     private Button btnAddProduct;
     private ProductSQLite productSQLite;
-//    private ProductAdapter productAdapter;
-//    private List<Products> productsList;
     private int imgs[] = {R.color.teal_200,
             R.color.teal_700,
             R.color.purple_200,
             R.color.purple_500,
             R.color.purple_700};
-    private int pcurr;
-
-
 
     @Nullable
     @Override
@@ -54,10 +49,6 @@ public class FragmentAddProduct extends Fragment {
         btnAddProduct = view.findViewById(R.id.btn_add_product);
 
         productSQLite = new ProductSQLite(getContext());
-
-//        productsList = new ArrayList<>();
-//        productsList = FragmentHome.productsList;
-//        productAdapter = new ProductAdapter(getContext(), productsList);
 
         ProductSpinnerAdapter productSpinnerAdapter = new ProductSpinnerAdapter(getContext());
         spnImgProduct.setAdapter(productSpinnerAdapter);
@@ -92,7 +83,6 @@ public class FragmentAddProduct extends Fragment {
                     }catch (NumberFormatException e){
 
                     }
-                    //productAdapter.addProduct(new Products(1, imgProduct, nameProduct, desProduct, priceProduct));
                     Bundle productBundle = new Bundle();
                     productBundle.putInt("imgPro", imgProduct);
                     productBundle.putString("namePro", nameProduct);

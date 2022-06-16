@@ -79,4 +79,10 @@ public class ProductSQLite extends SQLiteOpenHelper {
         return res;
     }
 
+    public Cursor searchProduct(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("SELECT * FROM " + TABLE_PRODUCT , null);
+        return  res;
+    }
+
 }

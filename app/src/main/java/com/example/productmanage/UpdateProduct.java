@@ -21,7 +21,6 @@ public class UpdateProduct extends AppCompatActivity {
     private Spinner spnImgUpdate;
     private EditText edtNamePro, edtDesPro, edtPricePro;
     private Button btnUpdate;
-    private ProductAdapter productAdapter;
     private int imgs[] = {R.color.teal_200,
             R.color.teal_700,
             R.color.purple_200,
@@ -42,12 +41,13 @@ public class UpdateProduct extends AppCompatActivity {
 
         productSQLite = new ProductSQLite(this);
 
-        productAdapter = new ProductAdapter(this, FragmentHome.productsList);
 
         ProductSpinnerAdapter productSpinnerAdapter = new ProductSpinnerAdapter(this);
         spnImgUpdate.setAdapter(productSpinnerAdapter);
 
         Intent intent = getIntent();
+
+
 
         edtNamePro.setText(intent.getStringExtra("namePro"));
         edtDesPro.setText(intent.getStringExtra("desPro"));
@@ -61,10 +61,17 @@ public class UpdateProduct extends AppCompatActivity {
                 String desPro = edtDesPro.getText().toString();
                 String pricePro = edtPricePro.getText().toString();
                 Products products = new Products();
+                String itemImg = spnImgUpdate.getSelectedItem().toString();
+                int imgProduct = R.color.teal_200;
+                try {
+                    imgProduct = imgs[Integer.parseInt(itemImg)];
+                }catch (NumberFormatException e){
+                }
+                products.setProductImg(imgProduct);
                 products.setProductName(namePro);
                 products.setProductDes(desPro);
                 products.setProductPrice(Float.parseFloat(pricePro));
-                //productAdapter.updateProduct(FragmentHome.pcurr, products);
+
                 productSQLite.updateProduct(products, Integer.parseInt(intent.getStringExtra("idPro")));
                 startActivity(intent1);
             }

@@ -19,6 +19,7 @@ import com.example.productmanage.Interface.OnClickInterface;
 import com.example.productmanage.Model.Products;
 import com.example.productmanage.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
@@ -82,19 +83,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         return productsList.size();
     }
 
-    public void addProduct(Products products){
-        productsList.add(products);
-        notifyDataSetChanged();
-    }
 
-    public Products getProductItem(int position){
-        return productsList.get(position);
-    }
-
-    public void updateProduct(int pcurr, Products products){
-        productsList.set(pcurr, products);
-        notifyDataSetChanged();
-    }
 
 
     public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

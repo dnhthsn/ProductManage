@@ -4,14 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.17291666666666666" />
+        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_update_product.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_fill_all_editext.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_add.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.25" />
         <entry key="app/src/main/res/layout/product_item_image.xml" value="0.25" />
         <entry key="app/src/main/res/layout/product_items.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/search_product_item.xml" value="0.1793478260869565" />
         <entry key="app/src/main/res/menu/product_menu_item.xml" value="0.2907692307692308" />
       </map>
     </option>
