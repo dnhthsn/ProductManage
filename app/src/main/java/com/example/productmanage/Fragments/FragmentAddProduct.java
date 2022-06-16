@@ -2,7 +2,6 @@ package com.example.productmanage.Fragments;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -16,36 +15,27 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import com.example.productmanage.Adapter.ProductAdapter;
+
 import com.example.productmanage.Adapter.ProductSpinnerAdapter;
-import com.example.productmanage.Interface.OnClickInterface;
-import com.example.productmanage.Interface.SendDataProductInterface;
+import com.example.productmanage.Database.ProductSQLite;
 import com.example.productmanage.Model.Products;
 import com.example.productmanage.R;
-import com.example.productmanage.UpdateProduct;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class FragmentAddProduct extends Fragment {
     private Spinner spnImgProduct;
     private EditText edtNameProduct, edtDesProduct, edtPriceProduct;
     private Button btnAddProduct;
-    private ProductAdapter productAdapter;
-    private List<Products> productsList;
+    private ProductSQLite productSQLite;
+//    private ProductAdapter productAdapter;
+//    private List<Products> productsList;
     private int imgs[] = {R.color.teal_200,
             R.color.teal_700,
             R.color.purple_200,
             R.color.purple_500,
             R.color.purple_700};
     private int pcurr;
-    private SendDataProductInterface sendDataProductInterface;
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        sendDataProductInterface = (SendDataProductInterface) getActivity();
-    }
+
 
     @Nullable
     @Override
@@ -63,9 +53,11 @@ public class FragmentAddProduct extends Fragment {
         edtPriceProduct = view.findViewById(R.id.edt_product_price);
         btnAddProduct = view.findViewById(R.id.btn_add_product);
 
-        productsList = new ArrayList<>();
-        productsList = FragmentHome.productsList;
-        productAdapter = new ProductAdapter(getContext(), productsList);
+        productSQLite = new ProductSQLite(getContext());
+
+//        productsList = new ArrayList<>();
+//        productsList = FragmentHome.productsList;
+//        productAdapter = new ProductAdapter(getContext(), productsList);
 
         ProductSpinnerAdapter productSpinnerAdapter = new ProductSpinnerAdapter(getContext());
         spnImgProduct.setAdapter(productSpinnerAdapter);
@@ -101,7 +93,14 @@ public class FragmentAddProduct extends Fragment {
 
                     }
                     //productAdapter.addProduct(new Products(1, imgProduct, nameProduct, desProduct, priceProduct));
-                    sendDataProductInterface.sendData(new Products(1, imgProduct, nameProduct, desProduct, priceProduct));
+                    Bundle productBundle = new Bundle();
+                    productBundle.putInt("imgPro", imgProduct);
+                    productBundle.putString("namePro", nameProduct);
+                    productBundle.putString("desPro", desProduct);
+                    productBundle.putString("pricePro", String.valueOf(priceProduct));
+                    getParentFragmentManager().setFragmentResult("dataFromAdd",productBundle);
+
+                    productSQLite.addProduct(new Products(imgProduct, nameProduct, desProduct, priceProduct));
                     edtNameProduct.setText("");
                     edtDesProduct.setText("");
                     edtPriceProduct.setText("");

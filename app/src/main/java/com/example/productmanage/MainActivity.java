@@ -2,20 +2,17 @@ package com.example.productmanage;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.productmanage.Adapter.ViewPagerAdapter;
 import com.example.productmanage.Fragments.FragmentHome;
-import com.example.productmanage.Interface.SendDataProductInterface;
 import com.example.productmanage.Model.Products;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity implements SendDataProductInterface {
+public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
 
@@ -72,9 +69,4 @@ public class MainActivity extends AppCompatActivity implements SendDataProductIn
 
     }
 
-    @Override
-    public void sendData(Products products) {
-        @SuppressLint("ResourceType") FragmentHome fragmentHome = (FragmentHome) getSupportFragmentManager().findFragmentById(R.layout.fragment_home);
-        fragmentHome.receiveDataFromFragmentAdd(products);
-    }
 }
