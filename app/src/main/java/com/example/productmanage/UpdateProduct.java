@@ -11,6 +11,7 @@ import android.widget.Spinner;
 
 import com.example.productmanage.Adapter.ProductAdapter;
 import com.example.productmanage.Adapter.ProductSpinnerAdapter;
+import com.example.productmanage.Database.ProductSQLite;
 import com.example.productmanage.Fragments.FragmentHome;
 import com.example.productmanage.Model.Products;
 
@@ -26,6 +27,7 @@ public class UpdateProduct extends AppCompatActivity {
             R.color.purple_200,
             R.color.purple_500,
             R.color.purple_700};
+    private ProductSQLite productSQLite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,8 @@ public class UpdateProduct extends AppCompatActivity {
         edtDesPro = findViewById(R.id.edt_product_description_update);
         edtPricePro = findViewById(R.id.edt_product_price_update);
         btnUpdate = findViewById(R.id.btn_update_product);
+
+        productSQLite = new ProductSQLite(this);
 
         productAdapter = new ProductAdapter(this, FragmentHome.productsList);
 
@@ -60,8 +64,8 @@ public class UpdateProduct extends AppCompatActivity {
                 products.setProductName(namePro);
                 products.setProductDes(desPro);
                 products.setProductPrice(Float.parseFloat(pricePro));
-                productAdapter.updateProduct(FragmentHome.pcurr, products);
-
+                //productAdapter.updateProduct(FragmentHome.pcurr, products);
+                productSQLite.updateProduct(products, Integer.parseInt(intent.getStringExtra("idPro")));
                 startActivity(intent1);
             }
         });

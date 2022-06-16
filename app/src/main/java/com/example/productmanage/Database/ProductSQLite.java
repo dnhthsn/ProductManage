@@ -60,6 +60,19 @@ public class ProductSQLite extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void updateProduct(Products products, int i){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(IMAGE_PRODUCT, products.getProductImg());
+        values.put(NAME_PRODUCT, products.getProductName());
+        values.put(DESCRIPTION_PRODUCT, products.getProductDes());
+        values.put(PRICE_PRODUCT, products.getProductPrice());
+
+        db.update(TABLE_PRODUCT, values, ID_PRODUCT +" = " + i, null);
+        db.close();
+    }
+
+
     public int deleteProduct(int i){
         SQLiteDatabase db = this.getReadableDatabase();
         int res = db.delete(TABLE_PRODUCT, ID_PRODUCT+" = " + i, null);

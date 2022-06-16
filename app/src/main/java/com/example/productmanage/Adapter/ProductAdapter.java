@@ -34,7 +34,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public ProductAdapter(Context context, List<Products> productsList) {
         this.context = context;
         this.productsList = productsList;
-        notifyDataSetChanged();
     }
 
     @NonNull
@@ -45,11 +44,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        if(position != 0)
         holder.imgProduct.setImageResource(productsList.get(position).getProductImg());
         holder.txtProductName.setText(productsList.get(position).getProductName());
         holder.txtProductDes.setText(productsList.get(position).getProductDes());
-        holder.txtProductPrice.setText(String.valueOf(productsList.get(position).getProductPrice()));
+        holder.txtProductPrice.setText(String.valueOf(productsList.get(position).getProductPrice()) + "$");
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
