@@ -45,9 +45,10 @@ public class AdminLoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = edtNameLog.getText().toString();
-                String password = edtPassLog.getText().toString();
-                if(TextUtils.isEmpty(name) || TextUtils.isEmpty(password)){
+                if(nameDB.equals(edtNameLog.getText().toString()) && passwordDB.equals(edtPassLog.getText().toString())){
+                    Intent intent1 = new Intent(AdminLoginActivity.this, UsersManageActivity.class);
+                    startActivity(intent1);
+                }else if(TextUtils.isEmpty(edtNameLog.getText().toString()) || TextUtils.isEmpty(edtPassLog.getText().toString())){
                     Dialog dialog = new Dialog(AdminLoginActivity.this);
                     dialog.setContentView(R.layout.dialog_fill_all_editext);
 
@@ -59,11 +60,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                         }
                     });
                     dialog.show();
-                } else if (nameDB.equals(name) || passwordDB.equals(password)){
-                    Intent intent1 = new Intent(AdminLoginActivity.this, UsersManageActivity.class);
-                    startActivity(intent1);
-
-                } else {
+                }else {
                     Toast.makeText(AdminLoginActivity.this, "Wrong information, please type again...", Toast.LENGTH_SHORT).show();
                 }
             }

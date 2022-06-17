@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.productmanage.Database.AdminSQlite;
 import com.example.productmanage.Model.Admins;
+import com.example.productmanage.Model.Users;
 
 public class AdminCreateAccountActivity extends AppCompatActivity {
     private EditText edtNameAdmin, edtPasswordAdmin, edtPhoneAdmin;
@@ -48,9 +49,7 @@ public class AdminCreateAccountActivity extends AppCompatActivity {
                 String name = edtNameAdmin.getText().toString();
                 String password = edtPasswordAdmin.getText().toString();
                 String phone = edtPhoneAdmin.getText().toString();
-                if (nameDB.equals(edtNameAdmin.getText().toString())){
-                    Toast.makeText(AdminCreateAccountActivity.this, "Admin name existed", Toast.LENGTH_SHORT).show();
-                } else  if (TextUtils.isEmpty(name) || TextUtils.isEmpty(password) || TextUtils.isEmpty(phone)){
+                if(TextUtils.isEmpty(name) || TextUtils.isEmpty(password) || TextUtils.isEmpty(phone)){
                     Dialog dialog = new Dialog(AdminCreateAccountActivity.this);
                     dialog.setContentView(R.layout.dialog_fill_all_editext);
 
@@ -62,13 +61,15 @@ public class AdminCreateAccountActivity extends AppCompatActivity {
                         }
                     });
                     dialog.show();
-                } else if(password.length() < 8){
-                    Toast.makeText(AdminCreateAccountActivity.this, "Password must be more 8 characters", Toast.LENGTH_SHORT).show();
-                } else {
-                    Admins admins =  new Admins(name, password, phone);
+                }else if (nameDB.equals(name)){
+                    Toast.makeText(AdminCreateAccountActivity.this, "Username existed", Toast.LENGTH_SHORT).show();
+                }else {
+                    Admins admins = new Admins(name, password, phone);
                     adminSQlite.addAdmin(admins);
                     Intent intent = new Intent(AdminCreateAccountActivity.this, AdminLoginActivity.class);
                     intent.putExtra("name", name);
+                    intent.putExtra("password", password);
+                    intent.putExtra("phone", phone);
                     startActivity(intent);
                 }
             }

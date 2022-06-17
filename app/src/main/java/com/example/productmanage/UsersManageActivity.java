@@ -36,13 +36,15 @@ public class UsersManageActivity extends AppCompatActivity {
             nameDB = cursor.getString(1);
             passwordDB = cursor.getString(2);
             phoneDB = cursor.getString(3);
+
+            Users users = new Users(idDB, nameDB, passwordDB, phoneDB);
+            usersList.add(users);
         }
 
         cursor.moveToFirst();
         cursor.close();
 
-        Users users = new Users(idDB, nameDB, passwordDB, phoneDB);
-        usersList.add(users);
+
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         userAdapter = new UserAdapter(this, usersList);
