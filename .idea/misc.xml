@@ -4,9 +4,23 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.17291666666666666" />
+        <entry key="app/src/main/res/drawable-nodpi/rectangle_1_shape.xml" value="0.28055555555555556" />
+        <entry key="app/src/main/res/drawable-v24/_bg__android_large___1_ek2_shape.xml" value="0.28055555555555556" />
+        <entry key="app/src/main/res/drawable-v24/rectangle_1_shape.xml" value="0.28055555555555556" />
+        <entry key="app/src/main/res/drawable-v24/rectangle_2_ek1_shape.xml" value="0.28055555555555556" />
+        <entry key="app/src/main/res/drawable-v24/rectangle_2_shape.xml" value="0.28055555555555556" />
+        <entry key="app/src/main/res/drawable/round_corner.xml" value="0.28055555555555556" />
+        <entry key="app/src/main/res/layout/activity_admin_create_account.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_admin_login.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_update_product.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_users_manage.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/android_large___1.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/android_large___2.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_fill_all_editext.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_add.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.165" />
@@ -14,6 +28,7 @@
         <entry key="app/src/main/res/layout/product_item_image.xml" value="0.25" />
         <entry key="app/src/main/res/layout/product_items.xml" value="0.25" />
         <entry key="app/src/main/res/layout/search_product_item.xml" value="0.1793478260869565" />
+        <entry key="app/src/main/res/layout/users_item.xml" value="0.25" />
         <entry key="app/src/main/res/menu/product_menu_item.xml" value="0.2907692307692308" />
       </map>
     </option>

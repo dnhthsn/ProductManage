@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="15dp"
+    android:layout_height="wrap_content">
+
+    <TableRow android:padding="10dp">
+        <TextView
+            android:id="@+id/txt_id_user"
+            android:text="id"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:paddingRight="10dp"
+            android:stretchColumns="1"
+            />
+        <TextView
+            android:id="@+id/txt_name_user"
+            android:text="name"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:paddingRight="40dp"
+            android:stretchColumns="1"
+            />
+        <TextView
+            android:id="@+id/txt_password_user"
+            android:text="password"
+            android:textSize="20dp"
+            android:paddingRight="20dp"
+            android:textStyle="bold"
+            android:stretchColumns="1"
+            />
+        <TextView
+            android:id="@+id/txt_phone_user"
+            android:text="phone"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:stretchColumns="1"
+            />
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/btn_delete_user"
+            android:text="Delete"
+            android:background="@drawable/round_corner"
+            android:textAllCaps="false"
+            android:textStyle="italic|bold"
+            android:textSize="20dp"
+            android:layout_column="3"/>
+    </TableRow>
+
+</TableLayout>

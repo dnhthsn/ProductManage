@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.example.productmanage.Model.Products;
+import com.example.productmanage.Model.Users;
 
 public class ProductSQLite extends SQLiteOpenHelper {
     private static String DATABASE_NAME = "products_db";
@@ -20,13 +21,18 @@ public class ProductSQLite extends SQLiteOpenHelper {
     private static String DESCRIPTION_PRODUCT = "desproduct";
     private static String PRICE_PRODUCT = "priceproduct";
 
+
+
+
     private String SQLQuery = "CREATE TABLE "+ TABLE_PRODUCT +" ( "+ID_PRODUCT+" INTEGER PRIMARY KEY AUTOINCREMENT, "
             +IMAGE_PRODUCT+" INTEGER, "
             +NAME_PRODUCT+" TEXT, "
             +DESCRIPTION_PRODUCT+" TEXT, "
             + PRICE_PRODUCT+" TEXT) ";
 
-    private static int VERSION = 1;
+
+
+    private static int VERSION = 3;
 
     public ProductSQLite(@Nullable Context context) {
         super(context, DATABASE_NAME, null, VERSION);
@@ -35,6 +41,7 @@ public class ProductSQLite extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(SQLQuery);
+
     }
 
     @Override
@@ -84,5 +91,7 @@ public class ProductSQLite extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("SELECT * FROM " + TABLE_PRODUCT , null);
         return  res;
     }
+
+
 
 }

@@ -1,5 +1,4 @@
 package com.example.productmanage.Fragments;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -7,23 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.productmanage.Adapter.ProductAdapter;
 import com.example.productmanage.Adapter.SearchProductAdapter;
 import com.example.productmanage.Database.ProductSQLite;
 import com.example.productmanage.DetailActivity;
 import com.example.productmanage.Interface.OnClickInterface;
 import com.example.productmanage.Model.Products;
 import com.example.productmanage.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
