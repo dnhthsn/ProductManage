@@ -40,8 +40,7 @@ public class AdminCreateAccountActivity extends AppCompatActivity {
             nameDB = cursor.getString(1);
         }
 
-        cursor.moveToFirst();
-        cursor.close();
+
 
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,5 +73,7 @@ public class AdminCreateAccountActivity extends AppCompatActivity {
                 }
             }
         });
+        cursor.moveToFirst();
+        cursor.close();
     }
 }

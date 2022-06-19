@@ -16,10 +16,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <SearchView
+        android:id="@+id/search_user"
+        android:layout_marginTop="20dp"
+        android:queryHint="User name"
+        android:layout_below="@id/txt_user_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec_users"
         android:layout_marginTop="30dp"
-        android:layout_below="@id/txt_user_title"
+        android:layout_below="@id/search_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
          />

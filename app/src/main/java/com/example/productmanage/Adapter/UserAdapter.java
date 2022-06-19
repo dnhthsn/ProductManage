@@ -15,9 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.productmanage.Database.ProductSQLite;
 import com.example.productmanage.Database.UserSQLite;
+import com.example.productmanage.Model.Products;
 import com.example.productmanage.Model.Users;
 import com.example.productmanage.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
@@ -74,6 +76,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     @Override
     public int getItemCount() {
         return users.size();
+    }
+
+    public void filterList(ArrayList<Users> filteredList) {
+        users = filteredList;
+        notifyDataSetChanged();
     }
 
     public class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
