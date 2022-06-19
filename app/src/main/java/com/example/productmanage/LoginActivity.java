@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -22,6 +23,8 @@ public class LoginActivity extends AppCompatActivity {
     private UserSQLite userSQLite;
     private String name, password;
     private TextView txtLoginAdmin;
+    private SharedPreferences sharedPreferences;
+    private CheckBox chkRememberUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +35,17 @@ public class LoginActivity extends AppCompatActivity {
         edtPassLog = findViewById(R.id.edt_password_log);
         btnLogin = findViewById(R.id.btn_signin);
         txtLoginAdmin = findViewById(R.id.txt_signin_admin);
+        chkRememberUser = findViewById(R.id.chk_remember_user);
+
+
 
         Intent intent = getIntent();
         edtNameLog.setText(intent.getStringExtra("name"));
+
+        sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
+        edtNameLog.setText(sharedPreferences.getString("username", ""));
+        edtPassLog.setText(sharedPreferences.getString("password", ""));
+        chkRememberUser.setChecked(sharedPreferences.getBoolean("checked", false));
 
         userSQLite = new UserSQLite(this);
         Cursor cursor = userSQLite.getUser();
@@ -66,6 +77,19 @@ public class LoginActivity extends AppCompatActivity {
                     dialog.show();
                 }else {
                     Toast.makeText(LoginActivity.this, "Wrong information, please type again...", Toast.LENGTH_SHORT).show();
+                }
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                if (chkRememberUser.isChecked()){
+                    editor.putString("username", edtNameLog.getText().toString());
+                    editor.putString("password", edtPassLog.getText().toString());
+                    editor.putBoolean("checked", true);
+                    editor.commit();
+                }else {
+                    editor.remove("username");
+                    editor.remove("password");
+                    editor.remove("checked");
+                    editor.commit();
                 }
             }
         });
