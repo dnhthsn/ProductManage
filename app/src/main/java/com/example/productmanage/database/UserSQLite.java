@@ -24,6 +24,8 @@ public class UserSQLite extends SQLiteOpenHelper {
             +PASSWORD_USER+" TEXT, "
             + PHONE_USER+" TEXT) ";
 
+    private String SQLQuery1 = "INSERT INTO " + TABLE_USER + " VALUES (null, 'son', '12345678', '0946658175')";
+
     private static int VERSION = 1;
 
     public UserSQLite(@Nullable Context context) {
@@ -33,6 +35,7 @@ public class UserSQLite extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(SQLQuery);
+        sqLiteDatabase.execSQL(SQLQuery1);
     }
 
     @Override

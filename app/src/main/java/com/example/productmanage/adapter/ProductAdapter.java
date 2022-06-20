@@ -18,6 +18,7 @@ import com.example.productmanage.database.ProductSQLite;
 import com.example.productmanage.interfaces.OnClickInterface;
 import com.example.productmanage.model.Products;
 import com.example.productmanage.R;
+import com.example.productmanage.repository.ProductRepository;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     Context context;
     List<Products> productsList;
     private OnClickInterface onClickInterface;
-    private ProductSQLite productSQLite;
+    private ProductRepository productRepository;
 
     public void setOnClickInterface(OnClickInterface onClickInterface) {
         this.onClickInterface = onClickInterface;
@@ -56,8 +57,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        productSQLite = new ProductSQLite(context);
-                        productSQLite.deleteProduct(productsList.get(position).getId());
+                        productRepository = new ProductRepository(context);
+                        productRepository.deleteProduct(productsList.get(position).getId());
                         productsList.remove(position);
 
 

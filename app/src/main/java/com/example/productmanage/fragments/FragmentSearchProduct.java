@@ -17,6 +17,8 @@ import com.example.productmanage.DetailActivity;
 import com.example.productmanage.interfaces.OnClickInterface;
 import com.example.productmanage.model.Products;
 import com.example.productmanage.R;
+import com.example.productmanage.repository.ProductRepository;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class FragmentSearchProduct extends Fragment implements OnClickInterface 
     private List<Products> productsList;
     private List<Products> list;
     private SearchView searchView;
-    private ProductSQLite productSQLite;
+    private ProductRepository productRepository;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -44,10 +46,10 @@ public class FragmentSearchProduct extends Fragment implements OnClickInterface 
 
         list = new ArrayList<>();
 
-        productSQLite = new ProductSQLite(getContext());
+        productRepository = new ProductRepository(getContext());
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
-        Cursor cursor = productSQLite.searchProduct();
+        Cursor cursor = productRepository.searchProduct();
         while (cursor.moveToNext()){
             int id = cursor.getInt(0);
             int imgProduct = cursor.getInt(1);

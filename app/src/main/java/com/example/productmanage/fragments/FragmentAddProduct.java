@@ -19,12 +19,13 @@ import com.example.productmanage.adapter.ProductSpinnerAdapter;
 import com.example.productmanage.database.ProductSQLite;
 import com.example.productmanage.model.Products;
 import com.example.productmanage.R;
+import com.example.productmanage.repository.ProductRepository;
 
 public class FragmentAddProduct extends Fragment {
     private Spinner spnImgProduct;
     private EditText edtNameProduct, edtDesProduct, edtPriceProduct;
     private Button btnAddProduct;
-    private ProductSQLite productSQLite;
+    private ProductRepository productRepository;
     private int imgs[] = {R.color.teal_200,
             R.color.teal_700,
             R.color.purple_200,
@@ -47,7 +48,7 @@ public class FragmentAddProduct extends Fragment {
         edtPriceProduct = view.findViewById(R.id.edt_product_price);
         btnAddProduct = view.findViewById(R.id.btn_add_product);
 
-        productSQLite = new ProductSQLite(getContext());
+        productRepository = new ProductRepository(getContext());
 
         ProductSpinnerAdapter productSpinnerAdapter = new ProductSpinnerAdapter(getContext());
         spnImgProduct.setAdapter(productSpinnerAdapter);
@@ -89,7 +90,7 @@ public class FragmentAddProduct extends Fragment {
                     productBundle.putString("pricePro", String.valueOf(priceProduct));
                     getParentFragmentManager().setFragmentResult("dataFromAdd",productBundle);
 
-                    productSQLite.addProduct(new Products(imgProduct, nameProduct, desProduct, priceProduct));
+                    productRepository.addProduct(new Products(imgProduct, nameProduct, desProduct, priceProduct));
                     edtNameProduct.setText("");
                     edtDesProduct.setText("");
                     edtPriceProduct.setText("");

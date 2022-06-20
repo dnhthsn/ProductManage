@@ -13,12 +13,12 @@ import com.example.productmanage.model.Products;
 public class ProductSQLite extends SQLiteOpenHelper {
     private static String DATABASE_NAME = "products_db";
 
-    private static String TABLE_PRODUCT = "product";
-    private static String ID_PRODUCT = "idproduct";
-    private static String IMAGE_PRODUCT = "imgproduct";
-    private static String NAME_PRODUCT = "nameproduct";
-    private static String DESCRIPTION_PRODUCT = "desproduct";
-    private static String PRICE_PRODUCT = "priceproduct";
+    public static String TABLE_PRODUCT = "product";
+    public static String ID_PRODUCT = "idproduct";
+    public static String IMAGE_PRODUCT = "imgproduct";
+    public static String NAME_PRODUCT = "nameproduct";
+    public static String DESCRIPTION_PRODUCT = "desproduct";
+    public static String PRICE_PRODUCT = "priceproduct";
 
 
 
@@ -47,50 +47,4 @@ public class ProductSQLite extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
-
-    public Cursor getProduct(){
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM " + TABLE_PRODUCT, null);
-        return  res;
-    }
-
-    public void addProduct(Products products){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(IMAGE_PRODUCT, products.getProductImg());
-        values.put(NAME_PRODUCT, products.getProductName());
-        values.put(DESCRIPTION_PRODUCT, products.getProductDes());
-        values.put(PRICE_PRODUCT, products.getProductPrice());
-
-        db.insert(TABLE_PRODUCT, null, values);
-        db.close();
-    }
-
-    public void updateProduct(Products products, int i){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(IMAGE_PRODUCT, products.getProductImg());
-        values.put(NAME_PRODUCT, products.getProductName());
-        values.put(DESCRIPTION_PRODUCT, products.getProductDes());
-        values.put(PRICE_PRODUCT, products.getProductPrice());
-
-        db.update(TABLE_PRODUCT, values, ID_PRODUCT +" = " + i, null);
-        db.close();
-    }
-
-
-    public int deleteProduct(int i){
-        SQLiteDatabase db = this.getReadableDatabase();
-        int res = db.delete(TABLE_PRODUCT, ID_PRODUCT+" = " + i, null);
-        return res;
-    }
-
-    public Cursor searchProduct(){
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM " + TABLE_PRODUCT , null);
-        return  res;
-    }
-
-
-
 }

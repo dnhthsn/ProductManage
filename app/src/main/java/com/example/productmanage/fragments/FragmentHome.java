@@ -22,6 +22,7 @@ import com.example.productmanage.interfaces.OnClickInterface;
 import com.example.productmanage.model.Products;
 import com.example.productmanage.R;
 import com.example.productmanage.UpdateProduct;
+import com.example.productmanage.repository.ProductRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,7 @@ public class FragmentHome extends Fragment implements OnClickInterface {
     private ProductAdapter productAdapter;
     private Button btnRefresh;
     public static int pcurr;
-    private ProductSQLite productSQLite;
+    private ProductRepository productRepository;
 
     @Nullable
     @Override
@@ -48,16 +49,13 @@ public class FragmentHome extends Fragment implements OnClickInterface {
         recyclerAllProduct = view.findViewById(R.id.rec_product);
         btnRefresh = view.findViewById(R.id.btn_refresh);
 
-        productSQLite = new ProductSQLite(getContext());
+        productRepository = new ProductRepository(getContext());
 
         productsList = new ArrayList<>();
 
-
-
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
 
-        Cursor cursor = productSQLite.getProduct();
+        Cursor cursor = productRepository.getProduct();
         while (cursor.moveToNext()){
             int id = cursor.getInt(0);
             int imgProduct = cursor.getInt(1);
