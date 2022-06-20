@@ -1,4 +1,4 @@
-package com.example.productmanage.Adapter;
+package com.example.productmanage.adapter;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -14,12 +14,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.productmanage.Database.ProductSQLite;
-import com.example.productmanage.Interface.OnClickInterface;
-import com.example.productmanage.Model.Products;
+import com.example.productmanage.database.ProductSQLite;
+import com.example.productmanage.interfaces.OnClickInterface;
+import com.example.productmanage.model.Products;
 import com.example.productmanage.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {

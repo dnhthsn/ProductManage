@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.productmanage.Database.AdminSQlite;
+import com.example.productmanage.database.AdminSQlite;
 
 public class AdminLoginActivity extends AppCompatActivity {
     private EditText edtNameLog, edtPassLog;

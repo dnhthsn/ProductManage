@@ -1,7 +1,6 @@
-package com.example.productmanage.Fragments;
+package com.example.productmanage.fragments;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -16,9 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.productmanage.Adapter.ProductSpinnerAdapter;
-import com.example.productmanage.Database.ProductSQLite;
-import com.example.productmanage.Model.Products;
+import com.example.productmanage.adapter.ProductSpinnerAdapter;
+import com.example.productmanage.database.ProductSQLite;
+import com.example.productmanage.model.Products;
 import com.example.productmanage.R;
 
 public class FragmentAddProduct extends Fragment {

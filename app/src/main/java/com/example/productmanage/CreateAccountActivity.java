@@ -13,10 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.productmanage.Database.UserSQLite;
-import com.example.productmanage.Model.Users;
-
-import org.w3c.dom.Text;
+import com.example.productmanage.database.UserSQLite;
+import com.example.productmanage.model.Users;
 
 public class CreateAccountActivity extends AppCompatActivity {
     private EditText edtNameCr, edtPasswordCr, edtPhoneCr;

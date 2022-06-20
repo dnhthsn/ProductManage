@@ -1,4 +1,4 @@
-package com.example.productmanage.Adapter;
+package com.example.productmanage.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

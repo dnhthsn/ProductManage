@@ -1,4 +1,4 @@
-package com.example.productmanage.Interface;
+package com.example.productmanage.interfaces;
 
 import android.view.View;
 

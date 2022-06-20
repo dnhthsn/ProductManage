@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.productmanage.Database.UserSQLite;
+import com.example.productmanage.database.UserSQLite;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edtNameLog, edtPassLog;

@@ -8,10 +8,9 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.SearchView;
 
-import com.example.productmanage.Adapter.UserAdapter;
-import com.example.productmanage.Database.UserSQLite;
-import com.example.productmanage.Model.Products;
-import com.example.productmanage.Model.Users;
+import com.example.productmanage.adapter.UserAdapter;
+import com.example.productmanage.database.UserSQLite;
+import com.example.productmanage.model.Users;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.productmanage.Adapter;
+package com.example.productmanage.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.productmanage.Interface.OnClickInterface;
-import com.example.productmanage.Model.Products;
+import com.example.productmanage.interfaces.OnClickInterface;
+import com.example.productmanage.model.Products;
 import com.example.productmanage.R;
 
 import java.util.ArrayList;

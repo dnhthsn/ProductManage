@@ -7,9 +7,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.productmanage.Adapter.ViewPagerAdapter;
-import com.example.productmanage.Fragments.FragmentHome;
-import com.example.productmanage.Model.Products;
+import com.example.productmanage.adapter.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {

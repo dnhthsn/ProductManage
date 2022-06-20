@@ -1,4 +1,4 @@
-package com.example.productmanage.Database;
+package com.example.productmanage.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,8 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.productmanage.Model.Products;
-import com.example.productmanage.Model.Users;
+import com.example.productmanage.model.Products;
 
 public class ProductSQLite extends SQLiteOpenHelper {
     private static String DATABASE_NAME = "products_db";

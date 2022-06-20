@@ -1,13 +1,13 @@
-package com.example.productmanage.Adapter;
+package com.example.productmanage.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.example.productmanage.Fragments.FragmentAddProduct;
-import com.example.productmanage.Fragments.FragmentHome;
-import com.example.productmanage.Fragments.FragmentSearchProduct;
+import com.example.productmanage.fragments.FragmentAddProduct;
+import com.example.productmanage.fragments.FragmentHome;
+import com.example.productmanage.fragments.FragmentSearchProduct;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     int pageNum;

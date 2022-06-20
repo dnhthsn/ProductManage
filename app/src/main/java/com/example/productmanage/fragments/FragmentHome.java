@@ -1,4 +1,4 @@
-package com.example.productmanage.Fragments;
+package com.example.productmanage.fragments;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,10 +16,10 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.productmanage.Adapter.ProductAdapter;
-import com.example.productmanage.Database.ProductSQLite;
-import com.example.productmanage.Interface.OnClickInterface;
-import com.example.productmanage.Model.Products;
+import com.example.productmanage.adapter.ProductAdapter;
+import com.example.productmanage.database.ProductSQLite;
+import com.example.productmanage.interfaces.OnClickInterface;
+import com.example.productmanage.model.Products;
 import com.example.productmanage.R;
 import com.example.productmanage.UpdateProduct;
 

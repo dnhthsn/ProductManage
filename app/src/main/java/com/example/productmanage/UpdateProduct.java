@@ -9,13 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.example.productmanage.Adapter.ProductAdapter;
-import com.example.productmanage.Adapter.ProductSpinnerAdapter;
-import com.example.productmanage.Database.ProductSQLite;
-import com.example.productmanage.Fragments.FragmentHome;
-import com.example.productmanage.Model.Products;
-
-import java.util.List;
+import com.example.productmanage.adapter.ProductSpinnerAdapter;
+import com.example.productmanage.database.ProductSQLite;
+import com.example.productmanage.model.Products;
 
 public class UpdateProduct extends AppCompatActivity {
     private Spinner spnImgUpdate;

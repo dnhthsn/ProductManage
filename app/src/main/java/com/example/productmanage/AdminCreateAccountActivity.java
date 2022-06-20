@@ -12,9 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.productmanage.Database.AdminSQlite;
-import com.example.productmanage.Model.Admins;
-import com.example.productmanage.Model.Users;
+import com.example.productmanage.database.AdminSQlite;
+import com.example.productmanage.model.Admins;
 
 public class AdminCreateAccountActivity extends AppCompatActivity {
     private EditText edtNameAdmin, edtPasswordAdmin, edtPhoneAdmin;
